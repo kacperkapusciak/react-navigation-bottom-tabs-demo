@@ -4,16 +4,16 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "react-native-screens/native-stack";
 import { MaterialIcons } from "@expo/vector-icons";
 
-import HomeScreen from "./src/screens/HomeScreen";
-import DiscoverScreen from "./src/screens/DiscoverScreen";
-import SettingsScreen from "./src/screens/SettingsScreen";
-import DetailsScreen from "./src/screens/DetailsScreen";
-import MoreSettingsScreen from "./src/screens/MoreSettingsScreen";
+import HomeScreen from "./screens/HomeScreen";
+import DiscoverScreen from "./screens/DiscoverScreen";
+import SettingsScreen from "./screens/SettingsScreen";
+import DetailsScreen from "./screens/DetailsScreen";
+import MoreSettingsScreen from "./screens/MoreSettingsScreen";
 import {
   BottomTabsParamList,
   HomeStackParamList,
   SettingsStackParamList,
-} from "./src/types";
+} from "./types";
 
 const HomeStack = createNativeStackNavigator<HomeStackParamList>();
 
