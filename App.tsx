@@ -1,24 +1,47 @@
-import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "react-native-screens/native-stack";
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
+import HomeScreen from "./src/screens/HomeScreen";
+import DiscoverScreen from "./src/screens/DiscoverScreen";
+import SettingsScreen from "./src/screens/SettingsScreen";
+import DetailsScreen from "./src/screens/DetailsScreen";
+import MoreSettingsScreen from "./src/screens/MoreSettingsScreen";
+import {
+  BottomTabsParamList,
+  HomeStackParamList,
+  SettingsStackParamList,
+} from "./src/types";
 
-export default function App() {
-  const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
+const HomeStack = createNativeStackNavigator<HomeStackParamList>();
 
-  if (!isLoadingComplete) {
-    return null;
-  } else {
-    return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
-    );
-  }
-}
+const HomeStackScreen = () => (
+  <HomeStack.Navigator>
+    <HomeStack.Screen name="Home" component={HomeScreen} />
+    <HomeStack.Screen name="Details" component={DetailsScreen} />
+  </HomeStack.Navigator>
+);
+
+const SettingsStack = createNativeStackNavigator<SettingsStackParamList>();
+
+const SettingsStackScreen = () => (
+  <SettingsStack.Navigator>
+    <SettingsStack.Screen name="Settings" component={SettingsScreen} />
+    <SettingsStack.Screen name="MoreSettings" component={MoreSettingsScreen} />
+  </SettingsStack.Navigator>
+);
+
+const Tab = createBottomTabNavigator<BottomTabsParamList>();
+
+const App = () => (
+  <NavigationContainer>
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeStackScreen} />
+      <Tab.Screen name="Discover" component={DiscoverScreen} />
+      <Tab.Screen name="Settings" component={SettingsStackScreen} />
+    </Tab.Navigator>
+  </NavigationContainer>
+);
+
+export default App;
