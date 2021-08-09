@@ -29,6 +29,7 @@ const HomeScreen = ({ navigation }: Props) => {
     <View style={styles.container}>
       <FlatList
         data={places}
+        keyExtractor={(item) => item}
         renderItem={({ item }) => (
           <Pressable
             onPress={() =>

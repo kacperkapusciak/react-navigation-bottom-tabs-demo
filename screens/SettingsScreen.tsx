@@ -9,16 +9,12 @@ type Props = {
 const SettingsScreen = ({ navigation }: Props) => (
   <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
     <Button
-      title="First setting"
+      title="More settings"
       onPress={() => navigation.navigate("MoreSettings")}
     />
     <Button
-      title="Second setting"
-      onPress={() => navigation.navigate("MoreSettings")}
-    />
-    <Button
-      title="Third setting"
-      onPress={() => navigation.navigate("MoreSettings")}
+      title="Other settings"
+      onPress={() => navigation.navigate("OtherSettings")}
     />
   </View>
 );

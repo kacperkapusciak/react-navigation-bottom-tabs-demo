@@ -9,6 +9,8 @@ import DiscoverScreen from "./screens/DiscoverScreen";
 import SettingsScreen from "./screens/SettingsScreen";
 import DetailsScreen from "./screens/DetailsScreen";
 import MoreSettingsScreen from "./screens/MoreSettingsScreen";
+import OtherSettingsScreen from "./screens/OtherSettingsScreen";
+import ImportantScreen from "./screens/ImportantScreen";
 import {
   BottomTabsParamList,
   HomeStackParamList,
@@ -30,6 +32,11 @@ const SettingsStackScreen = () => (
   <SettingsStack.Navigator>
     <SettingsStack.Screen name="Settings" component={SettingsScreen} />
     <SettingsStack.Screen name="MoreSettings" component={MoreSettingsScreen} />
+    <SettingsStack.Screen
+      name="OtherSettings"
+      component={OtherSettingsScreen}
+    />
+    <SettingsStack.Screen name="Important" component={ImportantScreen} />
   </SettingsStack.Navigator>
 );
 

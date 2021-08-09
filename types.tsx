@@ -10,6 +10,8 @@ export type HomeStackParamList = {
 export type SettingsStackParamList = {
   Settings: undefined;
   MoreSettings: undefined;
+  OtherSettings: undefined;
+  Important: undefined;
 };
 
 export type BottomTabsParamList = {
@@ -34,4 +36,14 @@ export type DetailsScreenRouteProp = RouteProp<HomeStackParamList, "Details">;
 export type SettingsScreenNavigationProp = NativeStackNavigationProp<
   SettingsStackParamList,
   "Settings"
+>;
+
+export type MoreSettingsScreenNavigationProp = NativeStackNavigationProp<
+  SettingsStackParamList,
+  "MoreSettings"
+>;
+
+export type OtherSettingsScreenNavigationProp = NativeStackNavigationProp<
+  SettingsStackParamList,
+  "OtherSettings"
 >;
